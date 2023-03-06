@@ -43,7 +43,7 @@ class _CalendarsViewState extends State<CalendarsView> {
   @override
   void initState() {
     super.initState();
-    _retrieveCalendars();
+    retrieveCalendars();
   }
 
   @override
@@ -185,7 +185,7 @@ class _CalendarsViewState extends State<CalendarsView> {
     );
   }
 
-  void _retrieveCalendars() async {
+  void retrieveCalendars() async {
     try {
       var permissionsGranted = await _deviceCalendarPlugin.hasPermissions();
       if (permissionsGranted.isSuccess &&
