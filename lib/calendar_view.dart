@@ -52,6 +52,7 @@ class _CalendarsViewState extends State<CalendarsView> {
       backgroundColor: Colors.transparent,
       appBar: AppBar(title: const Text('Apple calendar'),centerTitle: true,),
       body: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 30,vertical: 20),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10), color: Colors.white),
         child: Column(
@@ -60,8 +61,10 @@ class _CalendarsViewState extends State<CalendarsView> {
             const Center(
               child: Text(
                 "Apple Calendar",
+                style: TextStyle(fontWeight: FontWeight.bold,fontSize: 30),
               ),
             ),
+            const SizedBox(height: 20,),
             Center(
               child: Container(
                 margin: EdgeInsets.symmetric(horizontal: Get.width * 0.05),
@@ -71,14 +74,16 @@ class _CalendarsViewState extends State<CalendarsView> {
                 ),
               ),
             ),
+            const SizedBox(height: 20,),
             Expanded(
               flex: 1,
               child: ListView.builder(
                 itemCount: _calendars.length,
                 itemBuilder: (BuildContext context, int index) {
                   if (_calendars[index].isDefault!) {
-                    return Padding(
+                    return Container(
                       padding: const EdgeInsets.all(10.0),
+                      decoration: BoxDecoration(color: Colors.white,border: Border.all(color: Colors.blue,width: 2)),
                       child: Column(
                         children: [
                           Row(
@@ -160,11 +165,15 @@ class _CalendarsViewState extends State<CalendarsView> {
                   itemBuilder: (BuildContext context, int index) {
                     return Container(
                       margin: const EdgeInsets.symmetric(vertical: 10),
+                      padding: const EdgeInsets.symmetric(vertical: 10),
+                      decoration:  BoxDecoration(
+                        border: Border.all(color: Colors.black,width: 2)
+                      ),
                       child: Column(
                         children: [
                           Text(
-                              "start : ${calendarEvents[index].start!.toLocal()}"),
-                          Text("end : ${calendarEvents[index].end!.toLocal()}"),
+                              "event start date : ${calendarEvents[index].start!.toLocal()}"),
+                          Text("event end date : ${calendarEvents[index].end!.toLocal()}"),
                         ],
                       ),
                     );
